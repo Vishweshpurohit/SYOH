@@ -1,0 +1,564 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SYOH – Sell Your Own Home & Save Commission</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-soft: #0f172a;
+      --accent: #22c55e;
+      --accent-soft: #16a34a;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: rgba(148,163,184,0.3);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0b1120, #020617 55%);
+      color: var(--text);
+    }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(16px);
+      background: rgba(15,23,42,0.9);
+      border-bottom: 1px solid var(--border);
+      z-index: 50;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      margin-left: 1rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    main {
+      padding-top: 4rem;
+    }
+
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 1.5rem;
+    }
+
+    .hero-eyebrow {
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 5vw, 3.4rem);
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      color: var(--muted);
+    }
+
+    .hero-highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .hero-buttons {
+      margin-top: 1.75rem;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      border-radius: 9999px;
+      padding: 0.9rem 1.8rem;
+      border: 1px solid transparent;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+      color: #022c22;
+      box-shadow: 0 18px 40px rgba(34,197,94,0.35);
+    }
+
+    .btn-primary:hover {
+      opacity: 0.96;
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(15,23,42,0.8);
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 1rem;
+    }
+
+    .pill span {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .section {
+      padding: 4rem 1.5rem;
+    }
+
+    .section-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .section h2 {
+      font-size: 1.7rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section p.lead {
+      color: var(--muted);
+      max-width: 620px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .two-col {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: var(--bg-soft);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .list {
+      margin: 0.75rem 0 0 1rem;
+      padding: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .list li {
+      margin-bottom: 0.35rem;
+    }
+
+    .highlight-box {
+      background: radial-gradient(circle at top left, #22c55e15, #020617 65%);
+      border-radius: 1.2rem;
+      border: 1px solid var(--border);
+      padding: 1.5rem 1.75rem;
+      margin-top: 2rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .highlight-box strong {
+      color: var(--text);
+    }
+
+    .savings-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .savings-chip {
+      flex: 1 1 180px;
+      border-radius: 0.85rem;
+      border: 1px solid var(--border);
+      padding: 0.9rem 1rem;
+      font-size: 0.92rem;
+      background: rgba(15,23,42,0.9);
+    }
+
+    .savings-chip span {
+      display: block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .savings-chip strong {
+      font-size: 1.1rem;
+    }
+
+    .faq {
+      margin-top: 2rem;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(148,163,184,0.25);
+      padding: 0.9rem 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .faq-a {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+
+    .tagline {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+
+    .contact {
+      background: radial-gradient(circle at top left, #22c55e10, #020617 65%);
+      border-radius: 1.5rem;
+      border: 1px solid var(--border);
+      padding: 2rem;
+      margin-top: 2rem;
+      text-align: left;
+    }
+
+    .contact a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer {
+      padding: 1.5rem;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding-inline: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">SYOH</div>
+    <nav>
+      <a href="#problem">Problem</a>
+      <a href="#how">How it works</a>
+      <a href="#savings">Savings</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-eyebrow">Sell Your Own Home (SYOH)</div>
+      <h1>Skip the seller’s agent.<br />Keep the <span class="hero-highlight">4–6% commission</span>.</h1>
+      <p>
+        SYOH is a guided, flat-fee platform that helps U.S. homeowners sell
+        their own homes—without a traditional listing agent. We turn the
+        complex steps of pricing, listing, showings, negotiation, and
+        paperwork into a clear, step-by-step workflow.
+      </p>
+      <div class="hero-buttons">
+        <button class="btn btn-primary"
+          onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">
+          See how SYOH works
+        </button>
+        <button class="btn btn-ghost"
+          onclick="document.getElementById('savings').scrollIntoView({behavior:'smooth'})">
+          Calculate your potential savings
+        </button>
+      </div>
+      <div class="pill">
+        On a $500,000 home, sellers can save up to <span>$25,000+</span> in commission.
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section id="problem" class="section">
+      <div class="section-inner">
+        <h2>The problem with traditional home selling</h2>
+        <p class="lead">
+          Residential real estate is still sold using a high-percentage
+          commission model, even though much of the process is now digital
+          and standardized.
+        </p>
+
+        <div class="grid two-col">
+          <div class="card">
+            <h3>High commission, low transparency</h3>
+            <ul class="list">
+              <li>Typical total commission: 4–6% of the home sale price.</li>
+              <li>Seller’s agent and buyer’s agent split the commission.</li>
+              <li>Fee is tied to price, not to the actual effort involved.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Misaligned incentives</h3>
+            <ul class="list">
+              <li>Agents are often incentivized to close quickly, not to maximize net proceeds.</li>
+              <li>Long, restrictive listing agreements limit seller control.</li>
+              <li>Many tasks are repeatable and could be guided by software.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <strong>Our insight:</strong> most of the seller agent’s work—pricing from comparables,
+          creating listings, scheduling showings, sharing documents, and navigating offers—can be broken
+          into simple, guided steps that a motivated homeowner can follow with the right tools.
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" class="section">
+      <div class="section-inner">
+        <h2>How SYOH works</h2>
+        <p class="lead">
+          SYOH replaces the traditional seller’s agent with a structured,
+          digital workflow plus access to professionals only when you need them.
+        </p>
+
+        <div class="grid two-col">
+          <div class="card">
+            <h3>1. Price your home</h3>
+            <p>
+              Use data-driven comparables and local market trends to estimate a
+              realistic listing price. SYOH guides you through setting a
+              strategy, not just a number.
+            </p>
+          </div>
+          <div class="card">
+            <h3>2. Create and publish your listing</h3>
+            <p>
+              A step-by-step listing wizard helps you write the description,
+              upload photos, and highlight key features. Your listing can be
+              prepared for major online portals and buyer channels.
+            </p>
+          </div>
+          <div class="card">
+            <h3>3. Manage showings</h3>
+            <p>
+              Share available time slots, confirm appointments, and manage
+              in-person or virtual tours from one dashboard, without endless
+              back-and-forth.
+            </p>
+          </div>
+          <div class="card">
+            <h3>4. Review offers & negotiate</h3>
+            <p>
+              SYOH helps you compare offers, understand contingencies, and
+              structure counteroffers. You stay in control while following
+              a clear decision framework.
+            </p>
+          </div>
+          <div class="card">
+            <h3>5. Close with confidence</h3>
+            <p>
+              When legal documents and closing steps require professional help,
+              SYOH connects you to attorneys, title companies, or transaction
+              coordinators—only when needed, not by default.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAVINGS -->
+    <section id="savings" class="section">
+      <div class="section-inner">
+        <h2>How much can a seller save with SYOH?</h2>
+        <p class="lead">
+          Instead of paying a percentage of your home’s value, SYOH is designed
+          around a transparent, flat-fee model.
+        </p>
+
+        <div class="highlight-box">
+          <strong>Example:</strong>  
+          If you sell a home for <strong>$500,000</strong> and pay a 5% total
+          commission, you’re paying <strong>$25,000</strong> in fees.  
+          With a flat-fee model, most of that money stays with you.
+        </div>
+
+        <div class="savings-row">
+          <div class="savings-chip">
+            <span>Traditional model</span>
+            <strong>$25,000</strong>
+            <div class="tagline">5% commission on a $500,000 sale</div>
+          </div>
+          <div class="savings-chip">
+            <span>SYOH approach</span>
+            <strong>Flat fee</strong>
+            <div class="tagline">Pay for tools + optional professional services only</div>
+          </div>
+          <div class="savings-chip">
+            <span>Potential savings</span>
+            <strong>Up to $20k+</strong>
+            <div class="tagline">Money that can go toward your next home or savings</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="section-inner">
+        <h2>Frequently asked questions</h2>
+        <p class="lead">
+          SYOH doesn’t replace every professional in the process—only the pieces
+          that can be standardized and guided by software.
+        </p>
+
+        <div class="faq">
+          <div class="faq-item">
+            <div class="faq-q">Do I still need a buyer’s agent?</div>
+            <div class="faq-a">
+              Buyers may still choose to work with an agent. SYOH focuses on the
+              seller side of the transaction, helping you avoid a full listing
+              commission while staying prepared to handle incoming offers from
+              represented or unrepresented buyers.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Is SYOH a replacement for legal advice?</div>
+            <div class="faq-a">
+              No. SYOH is designed as a workflow and guidance platform. For
+              contracts, state-specific forms, and legal questions, we recommend
+              working with qualified real-estate attorneys. SYOH aims to make
+              that collaboration easier and more focused.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">What if I don’t have time to manage everything myself?</div>
+            <div class="faq-a">
+              You remain in control, but SYOH can connect you with à la carte
+              services like photography, staging, or transaction coordination.
+              Instead of paying a percentage commission, you pay only for the
+              specific help you need.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">What stage is the SYOH project in?</div>
+            <div class="faq-a">
+              SYOH is currently being developed as a platform concept and
+              prototype, focusing on breaking down the seller’s journey into
+              clear, tech-enabled steps. This site is a concept landing page
+              that explains the vision.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="section-inner">
+        <h2>Get in touch about SYOH</h2>
+        <div class="contact">
+          <p>
+            Are you interested in SYOH as:
+          </p>
+          <ul class="list">
+            <li>A homeowner curious about selling without a full listing commission?</li>
+            <li>An investor or partner exploring new models in residential real estate?</li>
+            <li>A technologist, designer, or real-estate professional who wants to collaborate?</li>
+          </ul>
+          <p style="margin-top:0.75rem;">
+            You can replace the placeholder details below with your real contact info:
+          </p>
+          <p>
+            Email: <strong>you@example.com</strong><br />
+            LinkedIn: <strong>linkedin.com/in/your-profile</strong><br />
+            Optional: <strong>Calendly / form link</strong> for people to book time.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> SYOH – Sell Your Own Home. Concept project.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
