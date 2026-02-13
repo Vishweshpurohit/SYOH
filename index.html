@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>SYOH – Sell Your Own Home & Save Commission</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <style>
     :root {
       --bg: #020617;
@@ -107,9 +108,9 @@
       padding: 0.9rem 1.8rem;
       border: 1px solid transparent;
       font-weight: 600;
-      cursor: pointer;
       font-size: 0.95rem;
       text-decoration: none;
+      cursor: pointer;
     }
 
     .btn-primary {
@@ -121,25 +122,7 @@
     .btn-ghost {
       background: transparent;
       color: var(--text);
-      border-color: var(--border);
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.35rem 0.8rem;
-      border-radius: 999px;
       border: 1px solid var(--border);
-      background: rgba(15,23,42,0.8);
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-top: 1rem;
-    }
-
-    .pill span {
-      color: var(--accent);
-      font-weight: 600;
     }
 
     .section {
@@ -161,76 +144,6 @@
       max-width: 620px;
     }
 
-    .grid {
-      display: grid;
-      gap: 1.5rem;
-    }
-
-    .two-col {
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      margin-top: 2rem;
-    }
-
-    .card {
-      background: var(--bg-soft);
-      border-radius: 1rem;
-      padding: 1.5rem;
-      border: 1px solid var(--border);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-      font-size: 1.05rem;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .list {
-      margin: 0.75rem 0 0 1rem;
-      padding: 0;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .list li {
-      margin-bottom: 0.35rem;
-    }
-
-    .highlight-box {
-      background: radial-gradient(circle at top left, #22c55e15, #020617 65%);
-      border-radius: 1.2rem;
-      border: 1px solid var(--border);
-      padding: 1.5rem 1.75rem;
-      margin-top: 2rem;
-      font-size: 0.95rem;
-      color: var(--muted);
-    }
-
-    .highlight-box strong {
-      color: var(--text);
-    }
-
-    .savings-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .savings-chip {
-      flex: 1 1 180px;
-      border-radius: 0.85rem;
-      border: 1px solid var(--border);
-      padding: 0.9rem 1rem;
-      font-size: 0.92rem;
-      background: rgba(15,23,42,0.9);
-    }
-
     footer {
       padding: 1.5rem;
       text-align: center;
@@ -242,12 +155,14 @@
 </head>
 
 <body>
+
   <!-- NAVIGATION -->
   <header>
     <div class="logo">SYOH</div>
     <nav>
       <a href="index.html">Home</a>
       <a href="create-listing.html">Create Listing</a>
+      <a href="listings.html">Browse Listings</a>
       <a href="#problem">Problem</a>
       <a href="#how">How it works</a>
       <a href="#savings">Savings</a>
@@ -257,22 +172,22 @@
   </header>
 
   <main>
+
     <!-- HERO -->
     <section class="hero">
       <div class="hero-eyebrow">Sell Your Own Home (SYOH)</div>
-      <h1>Skip the seller’s agent.<br />Keep the <span class="hero-highlight">4–6% commission</span>.</h1>
+      <h1>Skip the seller’s agent.<br>
+        Keep the <span class="hero-highlight">4–6% commission</span>.
+      </h1>
+
       <p>
-        SYOH is a guided, flat-fee platform that helps U.S. homeowners sell
-        their own homes—without a traditional listing agent.
+        SYOH is a guided, flat-fee platform that helps homeowners sell
+        without a traditional listing agent.
       </p>
 
       <div class="hero-buttons">
         <a class="btn btn-primary" href="create-listing.html">Create a Listing →</a>
-        <a class="btn btn-ghost" href="#how">See how it works</a>
-      </div>
-
-      <div class="pill">
-        On a $500,000 home, sellers can save up to <span>$25,000+</span>
+        <a class="btn btn-ghost" href="listings.html">Browse Listings</a>
       </div>
     </section>
 
@@ -281,8 +196,8 @@
       <div class="section-inner">
         <h2>The problem with traditional home selling</h2>
         <p class="lead">
-          Residential real estate is still sold using a high-percentage
-          commission model, even though much of the process is now digital.
+          Residential real estate still relies on high percentage commissions
+          even though much of the process is now digital.
         </p>
       </div>
     </section>
@@ -318,6 +233,7 @@
         <h2>Get in touch</h2>
       </div>
     </section>
+
   </main>
 
   <footer>
@@ -327,6 +243,6 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
-
